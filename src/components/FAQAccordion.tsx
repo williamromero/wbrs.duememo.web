@@ -2,45 +2,52 @@
 
 import { useState } from "react";
 
-interface Question {
+interface FAQItem {
   question: string;
   answer: string;
 }
 
 interface FAQAccordionProps {
-  questions: Question[];
+  questions: FAQItem[];
 }
 
 export function FAQAccordion({ questions }: FAQAccordionProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       {questions.map((item, index) => (
-        <div key={index} className="border-b border-[var(--divider)] last:border-b-0">
+        <div
+          key={index}
+          className="border border-gray-100 dark:border-gray-700 rounded-xl overflow-hidden"
+        >
           <button
             onClick={() => setOpenIndex(openIndex === index ? null : index)}
-            className="w-full py-4 flex items-center justify-between text-left group"
+            className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
           >
-            <span className="font-semibold text-[var(--text-primary)] group-hover:text-[var(--primary)] transition-colors pr-4">
+            <span className="font-medium text-gray-900 dark:text-white pr-4">
               {item.question}
             </span>
-            <span
-              className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === index
-                  ? "bg-[var(--primary)] text-white rotate-180"
-                  : "bg-[var(--bg-light)] text-[var(--text-secondary)]"
+            <svg
+              className={`w-5 h-5 text-gray-500 dark:text-gray-400 flex-shrink-0 transition-transform duration-200 ${openIndex === index ? "rotate-180" : ""
                 }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </span>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
           </button>
           <div
-            className={`overflow-hidden transition-all duration-300 ${openIndex === index ? "max-h-96 pb-4" : "max-h-0"
+            className={`overflow-hidden transition-all duration-200 ${openIndex === index ? "max-h-48" : "max-h-0"
               }`}
           >
-            <p className="text-[var(--text-secondary)] leading-relaxed">
+            <p className="px-4 pb-4 text-gray-600 dark:text-gray-300">
               {item.answer}
             </p>
           </div>

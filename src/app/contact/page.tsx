@@ -3,30 +3,30 @@ import { ContactForm } from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contacto - DuoMemo",
-  description: "¿Tienes preguntas o sugerencias? Contáctanos y te responderemos pronto.",
+  description: "¿Tienes preguntas? Contáctanos y te ayudaremos.",
 };
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen pt-24 pb-16 bg-[var(--bg-light)]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen pt-28 pb-20 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="inline-flex items-center gap-2 bg-[var(--accent-light)] text-[var(--accent-dark)] px-4 py-2 rounded-full text-sm font-semibold mb-4">
-            ✉️ Contacto
-          </span>
-          <h1 className="text-4xl font-bold text-[var(--text-primary)] mb-4">
-            ¿Cómo podemos ayudarte?
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 dark:bg-blue-900/50 rounded-2xl mb-6">
+            <span className="text-3xl">💬</span>
+          </div>
+          <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-3">
+            Contáctanos
           </h1>
-          <p className="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
-            Estamos aquí para responder tus preguntas, escuchar sugerencias o ayudarte con cualquier problema.
+          <p className="text-gray-500 dark:text-gray-400 max-w-lg mx-auto">
+            ¿Tienes preguntas, sugerencias o encontraste un error? Nos encantaría escucharte.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8">
           {/* Contact Form */}
-          <div className="bg-white rounded-3xl p-8 shadow-sm border border-[var(--border)]">
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-6">
+          <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-sm border border-gray-100 dark:border-gray-700">
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
               Envíanos un mensaje
             </h2>
             <ContactForm />
@@ -34,81 +34,57 @@ export default function ContactPage() {
 
           {/* Contact Info */}
           <div className="space-y-6">
-            {/* Quick Contact Cards */}
-            <div className="bg-white rounded-3xl p-6 shadow-sm border border-[var(--border)]">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[var(--primary-light)] rounded-xl flex items-center justify-center text-2xl">
+                <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/50 rounded-xl flex items-center justify-center text-xl">
                   📧
                 </div>
                 <div>
-                  <h3 className="font-bold text-[var(--text-primary)] mb-1">Email</h3>
-                  <p className="text-[var(--text-secondary)] mb-2">Para consultas generales</p>
-                  <a href="mailto:hola@duomemo.app" className="text-[var(--primary)] hover:underline font-medium">
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Email General</h3>
+                  <a href="mailto:hola@duomemo.app" className="text-emerald-600 dark:text-emerald-400 hover:underline">
                     hola@duomemo.app
                   </a>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-6 shadow-sm border border-[var(--border)]">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[var(--secondary-light)] rounded-xl flex items-center justify-center text-2xl">
+                <div className="w-12 h-12 bg-red-100 dark:bg-red-900/50 rounded-xl flex items-center justify-center text-xl">
                   🐛
                 </div>
                 <div>
-                  <h3 className="font-bold text-[var(--text-primary)] mb-1">Reportar un Bug</h3>
-                  <p className="text-[var(--text-secondary)] mb-2">¿Encontraste un problema?</p>
-                  <a href="mailto:bugs@duomemo.app" className="text-[var(--primary)] hover:underline font-medium">
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Reportar Errores</h3>
+                  <a href="mailto:bugs@duomemo.app" className="text-red-600 dark:text-red-400 hover:underline">
                     bugs@duomemo.app
                   </a>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-6 shadow-sm border border-[var(--border)]">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[var(--tertiary-light)] rounded-xl flex items-center justify-center text-2xl">
+                <div className="w-12 h-12 bg-violet-100 dark:bg-violet-900/50 rounded-xl flex items-center justify-center text-xl">
                   💡
                 </div>
                 <div>
-                  <h3 className="font-bold text-[var(--text-primary)] mb-1">Sugerencias</h3>
-                  <p className="text-[var(--text-secondary)] mb-2">¿Tienes ideas para mejorar?</p>
-                  <a href="mailto:ideas@duomemo.app" className="text-[var(--primary)] hover:underline font-medium">
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Sugerencias</h3>
+                  <a href="mailto:ideas@duomemo.app" className="text-violet-600 dark:text-violet-400 hover:underline">
                     ideas@duomemo.app
                   </a>
                 </div>
               </div>
             </div>
 
-            {/* Social Links */}
-            <div className="bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] rounded-3xl p-6 text-white">
-              <h3 className="font-bold text-xl mb-3">Síguenos</h3>
-              <p className="opacity-90 mb-4">Mantente al día con las últimas novedades</p>
-              <div className="flex gap-4">
-                {[
-                  { name: "Twitter", icon: "𝕏" },
-                  { name: "Instagram", icon: "📷" },
-                  { name: "TikTok", icon: "🎵" },
-                ].map((social) => (
-                  <a
-                    key={social.name}
-                    href="#"
-                    className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center hover:bg-white/30 transition-colors"
-                    aria-label={social.name}
-                  >
-                    {social.icon}
+            <div className="bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl p-6 text-white">
+              <h3 className="font-semibold mb-2">Síguenos</h3>
+              <p className="text-sm opacity-90 mb-4">Mantente al día con las novedades de DuoMemo</p>
+              <div className="flex gap-3">
+                {["𝕏", "📷", "🎵"].map((icon, i) => (
+                  <a key={i} href="#" className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center hover:bg-white/30 transition-colors">
+                    {icon}
                   </a>
                 ))}
-              </div>
-            </div>
-
-            {/* Response Time */}
-            <div className="bg-[var(--bg-light)] rounded-3xl p-6 border border-[var(--border)]">
-              <div className="flex items-center gap-3">
-                <div className="w-3 h-3 bg-[var(--success)] rounded-full animate-pulse"></div>
-                <span className="text-[var(--text-secondary)]">
-                  Tiempo de respuesta promedio: <strong className="text-[var(--text-primary)]">24 horas</strong>
-                </span>
               </div>
             </div>
           </div>

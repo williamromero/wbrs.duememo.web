@@ -2,20 +2,17 @@ import Image from "next/image";
 
 export function DownloadCTA() {
   return (
-    <section id="download" className="py-24 bg-gray-50 relative overflow-hidden">
-      {/* Background Elements */}
+    <section id="download" className="py-24 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
-        <div className="absolute bottom-10 right-10 w-72 h-72 bg-violet-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+        <div className="absolute top-10 left-10 w-72 h-72 bg-emerald-200 dark:bg-emerald-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-30"></div>
+        <div className="absolute bottom-10 right-10 w-72 h-72 bg-violet-200 dark:bg-violet-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-30"></div>
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-[2.5rem] p-8 sm:p-12 lg:p-16 text-white text-center relative overflow-hidden shadow-2xl">
-          {/* Decorative circles */}
+        <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 dark:from-gray-800 dark:via-gray-900 dark:to-black rounded-[2.5rem] p-8 sm:p-12 lg:p-16 text-white text-center relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/20 rounded-full -translate-y-1/2 translate-x-1/2"></div>
           <div className="absolute bottom-0 left-0 w-60 h-60 bg-violet-500/20 rounded-full translate-y-1/2 -translate-x-1/2"></div>
 
-          {/* Grid pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
               backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)',
@@ -24,7 +21,6 @@ export function DownloadCTA() {
           </div>
 
           <div className="relative z-10">
-            {/* Logo */}
             <div className="flex justify-center mb-6">
               <Image
                 src="/images/icon.png"
@@ -35,17 +31,14 @@ export function DownloadCTA() {
               />
             </div>
 
-            {/* Title */}
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4">
               ¿Listo para empezar?
             </h2>
 
-            {/* Subtitle */}
             <p className="text-lg sm:text-xl text-gray-300 mb-10 max-w-xl mx-auto">
               Únete a miles de estudiantes que ya están aprendiendo con DuoMemo. Es gratis, es divertido, ¡y funciona!
             </p>
 
-            {/* Download Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <a
                 href="#"
@@ -74,7 +67,6 @@ export function DownloadCTA() {
               </a>
             </div>
 
-            {/* Trust badges */}
             <div className="flex flex-wrap justify-center gap-6 text-gray-400 text-sm">
               <div className="flex items-center gap-2">
                 <span className="text-emerald-400">✓</span>
@@ -83,10 +75,6 @@ export function DownloadCTA() {
               <div className="flex items-center gap-2">
                 <span className="text-emerald-400">✓</span>
                 100% Gratis
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-emerald-400">✓</span>
-                Privacidad garantizada
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-emerald-400">✓</span>

@@ -21,10 +21,9 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-gray-900 text-white pt-16 pb-8">
+    <footer className="bg-gray-900 dark:bg-black text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-          {/* Brand Column */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-4">
               <Image
@@ -48,7 +47,7 @@ export function Footer() {
                 <a
                   key={social.name}
                   href="#"
-                  className="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-emerald-600 transition-colors"
+                  className="w-10 h-10 bg-gray-800 dark:bg-gray-900 rounded-xl flex items-center justify-center hover:bg-emerald-600 transition-colors"
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -57,7 +56,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Product Links */}
           <div>
             <h3 className="font-semibold mb-4 text-white">Producto</h3>
             <ul className="space-y-3">
@@ -74,7 +72,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Support Links */}
           <div>
             <h3 className="font-semibold mb-4 text-white">Soporte</h3>
             <ul className="space-y-3">
@@ -91,7 +88,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Legal Links */}
           <div>
             <h3 className="font-semibold mb-4 text-white">Legal</h3>
             <ul className="space-y-3">
@@ -109,7 +105,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-sm">
             © {currentYear} DuoMemo. Todos los derechos reservados.

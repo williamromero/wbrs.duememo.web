@@ -3,16 +3,10 @@
 import { useState } from "react";
 
 export function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    type: "general",
-    message: "",
-  });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -20,120 +14,85 @@ export function ContactForm() {
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     setIsSubmitting(false);
-    setIsSubmitted(true);
+    setIsSuccess(true);
   };
 
-  if (isSubmitted) {
+  if (isSuccess) {
     return (
-      <div className="text-center py-12">
-        <div className="w-20 h-20 bg-[var(--primary-light)] rounded-full flex items-center justify-center mx-auto mb-6">
-          <span className="text-4xl">✅</span>
+      <div className="text-center py-8">
+        <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg className="w-8 h-8 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
         </div>
-        <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-3">
-          ¡Mensaje enviado!
-        </h3>
-        <p className="text-[var(--text-secondary)] mb-6">
-          Gracias por contactarnos. Te responderemos pronto.
-        </p>
-        <button
-          onClick={() => {
-            setIsSubmitted(false);
-            setFormData({ name: "", email: "", type: "general", message: "" });
-          }}
-          className="text-[var(--primary)] font-semibold hover:underline"
-        >
-          Enviar otro mensaje
-        </button>
+        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">¡Mensaje enviado!</h3>
+        <p className="text-gray-600 dark:text-gray-300">Te responderemos lo antes posible.</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Name */}
+    <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <label htmlFor="name" className="block text-sm font-semibold text-[var(--text-primary)] mb-2">
+        <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
           Nombre
         </label>
         <input
           type="text"
           id="name"
           required
-          value={formData.name}
-          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--bg-light)] text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent transition-all"
+          className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors"
           placeholder="Tu nombre"
         />
       </div>
 
-      {/* Email */}
       <div>
-        <label htmlFor="email" className="block text-sm font-semibold text-[var(--text-primary)] mb-2">
+        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
           Email
         </label>
         <input
           type="email"
           id="email"
           required
-          value={formData.email}
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--bg-light)] text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent transition-all"
+          className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors"
           placeholder="tu@email.com"
         />
       </div>
 
-      {/* Type */}
       <div>
-        <label htmlFor="type" className="block text-sm font-semibold text-[var(--text-primary)] mb-2">
+        <label htmlFor="type" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
           Tipo de consulta
         </label>
         <select
           id="type"
-          value={formData.type}
-          onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-          className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--bg-light)] text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent transition-all"
+          className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors"
         >
-          <option value="general">Pregunta general</option>
-          <option value="bug">Reportar un problema</option>
-          <option value="feature">Sugerir una función</option>
-          <option value="partnership">Colaboración</option>
+          <option value="general">Consulta general</option>
+          <option value="bug">Reportar error</option>
+          <option value="suggestion">Sugerencia</option>
           <option value="other">Otro</option>
         </select>
       </div>
 
-      {/* Message */}
       <div>
-        <label htmlFor="message" className="block text-sm font-semibold text-[var(--text-primary)] mb-2">
+        <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
           Mensaje
         </label>
         <textarea
           id="message"
           required
-          rows={5}
-          value={formData.message}
-          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-          className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--bg-light)] text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent transition-all resize-none"
-          placeholder="Escribe tu mensaje aquí..."
+          rows={4}
+          className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors resize-none"
+          placeholder="¿En qué podemos ayudarte?"
         />
       </div>
 
-      {/* Submit Button */}
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] text-white py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-[var(--primary)]/30 transition-all duration-300 hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+        className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {isSubmitting ? (
-          <span className="flex items-center justify-center gap-2">
-            <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-            </svg>
-            Enviando...
-          </span>
-        ) : (
-          "Enviar mensaje"
-        )}
+        {isSubmitting ? "Enviando..." : "Enviar mensaje"}
       </button>
     </form>
   );

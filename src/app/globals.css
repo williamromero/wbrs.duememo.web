@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
+/* Enable dark mode with class selector */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --foreground: #1f2937;
   --background: #f5f6f8;
+}
+
+.dark {
+  --foreground: #f1f5f9;
+  --background: #030712;
 }
 
 html {
@@ -16,44 +24,33 @@ body {
 
 /* Custom animations */
 @keyframes float {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0) rotateZ(0deg);
   }
-
   25% {
     transform: translateY(-8px) rotateZ(1deg);
   }
-
   50% {
     transform: translateY(-12px) rotateZ(0deg);
   }
-
   75% {
     transform: translateY(-8px) rotateZ(-1deg);
   }
 }
 
 @keyframes floatLeft {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0) rotate(-12deg);
   }
-
   50% {
     transform: translateY(-15px) rotate(-10deg);
   }
 }
 
 @keyframes floatRight {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0) rotate(12deg);
   }
-
   50% {
     transform: translateY(-12px) rotate(14deg);
   }

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -28,11 +29,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body className={`${inter.variable} antialiased`}>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+    <html lang="es" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('duomemo-theme');
+                  if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className={`${inter.variable} antialiased bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors`}>
+        <ThemeProvider>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
