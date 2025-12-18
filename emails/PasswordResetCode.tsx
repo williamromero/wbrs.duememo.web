@@ -6,6 +6,8 @@ interface PasswordResetCodeEmailProps {
   expiresInMinutes?: number;
 }
 
+const LOGO_URL = 'https://www.duomemo.site/images/logo.png';
+
 export function PasswordResetCodeEmail({
   code,
   expiresInMinutes = 15,
@@ -13,8 +15,15 @@ export function PasswordResetCodeEmail({
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <div style={styles.logo}>
-          <span style={styles.logoText}>DuoMemo</span>
+        {/* Logo */}
+        <div style={styles.logoContainer}>
+          <img
+            src={LOGO_URL}
+            alt="DuoMemo"
+            width="80"
+            height="80"
+            style={styles.logo}
+          />
         </div>
 
         <h1 style={styles.title}>Código de verificación</h1>
@@ -42,82 +51,97 @@ export function PasswordResetCodeEmail({
           — El equipo de DuoMemo
         </p>
       </div>
+
+      {/* Footer */}
+      <div style={styles.footerLinks}>
+        <a href="https://www.duomemo.site" style={styles.link}>duomemo.site</a>
+      </div>
     </div>
   );
 }
 
 const styles: Record<string, React.CSSProperties> = {
   container: {
-    backgroundColor: '#f4f4f5',
+    backgroundColor: '#f0fdf4', // emerald-50
     padding: '40px 20px',
     fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
   },
   card: {
     backgroundColor: '#ffffff',
-    borderRadius: '16px',
-    padding: '40px',
+    borderRadius: '24px',
+    padding: '48px 40px',
     maxWidth: '480px',
     margin: '0 auto',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
+    boxShadow: '0 4px 24px rgba(16, 185, 129, 0.1)',
+    border: '1px solid #d1fae5', // emerald-200
   },
-  logo: {
+  logoContainer: {
     textAlign: 'center' as const,
     marginBottom: '24px',
   },
-  logoText: {
-    fontSize: '28px',
-    fontWeight: '700',
-    color: '#8B5CF6',
+  logo: {
+    borderRadius: '16px',
   },
   title: {
-    fontSize: '24px',
-    fontWeight: '600',
-    color: '#18181b',
+    fontSize: '28px',
+    fontWeight: '700',
+    color: '#064e3b', // emerald-900
     textAlign: 'center' as const,
     margin: '0 0 16px 0',
   },
   text: {
     fontSize: '16px',
-    color: '#52525b',
+    color: '#374151', // gray-700
     textAlign: 'center' as const,
-    lineHeight: '1.5',
-    margin: '0 0 24px 0',
+    lineHeight: '1.6',
+    margin: '0 0 28px 0',
   },
   codeContainer: {
-    backgroundColor: '#f4f4f5',
-    borderRadius: '12px',
-    padding: '20px',
+    background: 'linear-gradient(135deg, #10b981 0%, #8b5cf6 100%)', // emerald to violet
+    borderRadius: '16px',
+    padding: '24px',
     textAlign: 'center' as const,
     marginBottom: '16px',
   },
   code: {
-    fontSize: '36px',
-    fontWeight: '700',
-    color: '#18181b',
-    letterSpacing: '8px',
+    fontSize: '40px',
+    fontWeight: '800',
+    color: '#ffffff',
+    letterSpacing: '10px',
+    fontFamily: 'monospace',
   },
   expiry: {
     fontSize: '14px',
-    color: '#a1a1aa',
+    color: '#6b7280', // gray-500
     textAlign: 'center' as const,
-    margin: '0 0 24px 0',
+    margin: '0 0 28px 0',
   },
   divider: {
     height: '1px',
-    backgroundColor: '#e4e4e7',
+    backgroundColor: '#e5e7eb', // gray-200
     margin: '24px 0',
   },
   footer: {
     fontSize: '14px',
-    color: '#71717a',
+    color: '#9ca3af', // gray-400
     textAlign: 'center' as const,
     margin: '0 0 8px 0',
   },
   signature: {
     fontSize: '14px',
-    color: '#a1a1aa',
+    color: '#10b981', // emerald-500
     textAlign: 'center' as const,
     margin: '0',
+    fontWeight: '500',
+  },
+  footerLinks: {
+    textAlign: 'center' as const,
+    marginTop: '24px',
+  },
+  link: {
+    fontSize: '14px',
+    color: '#10b981', // emerald-500
+    textDecoration: 'none',
   },
 };
 
@@ -135,5 +159,7 @@ Este código expira en ${expiresInMinutes} minutos.
 Si no solicitaste este código, puedes ignorar este mensaje de forma segura.
 
 — El equipo de DuoMemo
+
+duomemo.site
   `.trim();
 }
