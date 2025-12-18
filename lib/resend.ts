@@ -15,6 +15,5 @@ export function getResend(): Resend {
   return resendClient;
 }
 
-// Default sender - using Resend's test domain
-// In production, replace with your verified domain
-export const FROM_EMAIL = process.env.NEXT_RESEND_FROM_EMAIL || 'DuoMemo <onboarding@resend.dev>';
+// Sender email using verified domain
+export const FROM_EMAIL = process.env.NEXT_RESEND_FROM_EMAIL || 'DuoMemo <noreply@duomemo.site>';
