@@ -11,6 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.duomemo.site"),
   title: "DuoMemo - Aprende idiomas jugando",
   description: "Memoriza vocabulario con flashcards interactivas, juegos adictivos y un sistema de rachas que te mantiene motivado. Tu compañero perfecto para aprender idiomas.",
   keywords: ["aprender idiomas", "vocabulario", "flashcards", "juegos educativos", "memoria", "aprendizaje"],
@@ -20,8 +21,25 @@ export const metadata: Metadata = {
     description: "Memoriza vocabulario con flashcards interactivas, juegos adictivos y un sistema de rachas que te mantiene motivado.",
     type: "website",
     locale: "es_ES",
+    url: "https://www.duomemo.site",
+    siteName: "DuoMemo",
+    images: [
+      {
+        url: "/screenshots/00-homepage.png",
+        width: 1200,
+        height: 630,
+        alt: "DuoMemo - Aprende idiomas jugando",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DuoMemo - Aprende idiomas jugando",
+    description: "Memoriza vocabulario con flashcards interactivas, juegos adictivos y un sistema de rachas que te mantiene motivado.",
+    images: ["/screenshots/00-homepage.png"],
   },
 };
+
 
 export default function RootLayout({
   children,

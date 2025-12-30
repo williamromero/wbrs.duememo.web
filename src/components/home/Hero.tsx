@@ -74,7 +74,9 @@ export function Hero() {
             {/* Download Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
               <a
-                href="#download"
+                href="https://apps.apple.com/us/app/duomemo/id6756503744"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group flex items-center justify-center gap-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-8 py-4 rounded-2xl font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
               >
                 <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
@@ -87,7 +89,9 @@ export function Hero() {
               </a>
 
               <a
-                href="#download"
+                href="https://play.google.com/store/apps/details?id=com.webresstudio.duomemo"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group flex items-center justify-center gap-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-8 py-4 rounded-2xl font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
               >
                 <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
